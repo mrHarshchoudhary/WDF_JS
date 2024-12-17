@@ -29,7 +29,7 @@ function Input() {
 
   
   let outputMessage = `Thank you! Hello, my name is ${name}, my email is ${email}, my division is ${div}, and your feedback bright my future: "${feedback}"`;
-document.getElementById("mypara").textContent="Thanks for your feedback"
+document.getElementById("mypara").textContent=`Thanks for your feedback ${name}`
 
   console.log(outputMessage);
 }
