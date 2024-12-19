@@ -1,68 +1,86 @@
-*{
-  font-family: sans-serif;
-  background-color: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  align-items: center;
+/* Reset and basic styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
-body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #654ea3;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #afeaea, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-}
-.convert{
+/* Body Styling */
+body {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  margin: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  border: 0px solid;
-  border-radius: 16px;
-  background-image: linear-gradient(120deg, #ffffff4f 0%, #ffffff4f 100%);
-  transition: 0.5s;
+  height: 100vh;
+  background: linear-gradient(135deg, #f3e5f5, #7e57c2);
 }
-.convert:hover{
+
+/* Main Container Styling */
+.convert {
+  background: #fff;
+  padding: 40px;
+  width: 450px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.convert:hover {
   transform: translateY(-10px);
-  
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.281);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
-.btn{
-  width: auto;
-  background: rgb(4,0,66);
-  background-image: linear-gradient(to right, #ffffff2b 0%, #ffffff29 100%);
-padding: 10px;
-border-radius: 8px;
-border: 0px;
-color: #fff;
-font-size: 1rem;
-font-weight: 600;
-transition: 0.5s;
-}
-.btn:hover{
-  cursor: pointer;
-  background-image: linear-gradient(to right, #ffffff00 0%, #ffffff00 100%);
-}
-input,option,select{
-  margin: 10px;
-  background: none;
-  
-  padding: 10px;
+
+/* Button Styling */
+.btn {
+  padding: 12px 25px;
+  border: none;
   border-radius: 8px;
-  border: 0.3px solid;
+  background: linear-gradient(to right, #8e44ad, #3498db);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: background 0.3s;
 }
-p{
-  background-color: #0000002e;
+
+.btn:hover {
+  background: linear-gradient(to right, #3498db, #8e44ad);
+}
+
+/* Input and Label Styling */
+input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+label {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 10px;
+  display: block;
+  text-align: left;
+}
+
+/* Result Box Styling */
+p {
+  background: rgba(0, 0, 0, 0.1);
   padding: 15px;
   border-radius: 8px;
-  margin: 10px;
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 15px;
 }
-.input{
+
+/* Input Wrapper Styling */
+.input {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
