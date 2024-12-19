@@ -1,47 +1,62 @@
-let genPass = () => {
-  let smallLetters = "abcdefghijklmnopqrstuvwxyz";
-  let bigLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let numbers = "0123456789";
-  let special = "!@#$%^&*";
+let num1;
 
-  let charSet = "";
+function Throw1() {
+    const mini = parseInt(document.getElementById('val').value);
+    const maxi = parseInt(document.getElementById('val2').value);
 
-  if (document.getElementById('low').checked) {
-      charSet += smallLetters;
-  }
-  if (document.getElementById('up').checked) {
-      charSet += bigLetters;
-  }
-  if (document.getElementById('spe').checked) {
-      charSet += special;
-  }
-  if (document.getElementById('num').checked) {
-      charSet += numbers;
-  }
+    if (isNaN(mini) || isNaN(maxi) || mini >= maxi) {
+        document.getElementById('result').innerHTML = "Invalid range. Ensure Min < Max and both are valid numbers.";
+        return;
+    }
 
-  const n = parseInt(document.getElementById('limit').value);
-  let pass = "";
+    num1 = Math.round(Math.random() * (maxi - mini) + mini);
 
-  if (charSet.length > 0 && !isNaN(n) && n > 0) {
-      for (let i = 0; i < n; i++) {
-          pass += charSet.charAt(Math.floor(Math.random() * charSet.length));
-      }
-     
-      document.getElementById('result').innerHTML=`${pass}<button class="copy-btn" id="copyBtn"  onclick="copyPassword()">Copy</button>`
-      
-  } else {
-      document.getElementById('result').innerHTML = "Please select at least one option and provide a valid length.";
-  }
-};
+    console.log(`Generated number: ${num1}`);
+    window.alert("Open the console to see the generated number.");
+}
 
-let copyPassword = () => {
-  const password = document.getElementById('result').textContent;
+function checkRange() {
+    const mini = parseInt(document.getElementById('val').value);
+    const maxi = parseInt(document.getElementById('val2').value);
+    const Yguess = parseInt(document.getElementById('val3').value);
 
-  if (password) {
-      navigator.clipboard.writeText(password).then(() => {
-          alert("Password copied to clipboard!");
-      }).catch(err => {
-          console.error("Failed to copy password: ", err);
-      });
-  }
-}; 
+    if (isNaN(mini) || isNaN(maxi) || isNaN(Yguess)) {
+        document.getElementById('result').innerHTML = "Please enter valid numbers in all fields.";
+        return;
+    }
+
+    if (Yguess < mini || Yguess > maxi) {
+        document.getElementById('result').innerHTML = "Please enter a valid number within the range.";
+        return;
+    }
+
+    const diff = Math.abs(num1 - Yguess); 
+
+    if (Yguess === num1) {
+        document.getElementById('result').innerHTML = `🎉Correct answer!🎉 The number was ${num1}.`;
+        clearFields();
+    } else {
+        
+        if (diff === 1) {
+            document.getElementById('result').innerHTML =`You're very close! You're just 1 number away!`
+        } else if (diff <= 3) {
+            document.getElementById('result').innerHTML =`You're close! Try again.`
+        } else {
+            if (Yguess < num1) {
+                document.getElementById('result').innerHTML =`Try a bigger number.`
+            } else {
+                document.getElementById('result').innerHTML =`Try a smaller number.`
+            }
+        }
+
+        
+    }
+    function clearFields() {
+        document.getElementById('val').value = '';
+        document.getElementById('val2').value = '';
+        document.getElementById('val3').value = '';
+    }
+}
+
+
+
