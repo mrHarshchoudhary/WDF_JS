@@ -1,67 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Unit Converter</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-   body {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+   
+    <style>
+     /* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f0f0f0;
-  min-height: 100vh;
+}
+
+body {
+  background-color: #f4f4f4;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.container {
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+.convert {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
 }
 
-select, input {
-  padding: 15px 20px;
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #555;
+}
+
+input[type="text"], select {
+  width: calc(100% - 20px);
+  padding: 8px 10px;
+  margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin: 10px 0;
-  width: 250px;
+  font-size: 14px;
 }
 
 button {
-  padding: 15px 30px;
-  background-color: #4CAF50;
+  padding: 10px 20px;
+  background: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background 0.3s;
+  margin-top: 10px;
 }
 
-#result {
-  font-size: 18px;
-  margin-top: 20px;
-  font-weight: bold;
+button:hover {
+  background: #0056b3;
 }
-  </style>
+
+.result {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+    </style>
 </head>
 <body>
-  <h1>Unit Converter</h1>
-  <select id="converterType" onchange="updateInputPlaceholder()">
-    <option value="">Select Conversion</option>
-    <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
-    <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
-    <option value="dollarToRupee">Dollar to Rupee</option>
-    <option value="rupeeToDollar">Rupee to Dollar</option>
-  </select>
-  <br><br>
-  <input type="text" id="inputValue" placeholder="">
-  <button onclick="convert()">Convert</button>
-  <br><br>
-  <p id="result"></p>
-
-  <script src="conversion.js"></script>
+    <div class="convert">
+        <h1 id="header">Converter</h1>
+        <label for="text">Enter Value:  
+      <input type="text" id="val" placeholder="Enter value"></label>
+      <label for="division">Convert To:
+      <select id="division" onchange="updatePlaceholder()">
+        <option value="">--Select Format--</option>
+        <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
+        <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
+        <option value="dollarToRupee">Dollar to Rupee</option>
+        <option value="rupeeToDollar">Rupee to Dollar</option>
+      </select></label>
+      <button class="btn" type="button" onclick="converter()">Convert</button>
+      <p>Result: <span class="result" id="Result">-</span></p>
+    </div>
+    <script src="conversion.js">
+        
+    </script>
 </body>
 </html>

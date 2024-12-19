@@ -1,51 +1,52 @@
-function updateInputPlaceholder() {
-    const converterType = document.getElementById("converterType").value;
-    const inputField = document.getElementById("inputValue");
-  
-    switch (converterType) {
-      case "celsiusToFahrenheit":
-        inputField.placeholder = "Enter Celsius";
-        break;
-      case "fahrenheitToCelsius":
-        inputField.placeholder = "Enter Fahrenheit";
-        break;
-      case "dollarToRupee":
-        inputField.placeholder = "Enter Dollars";
-        break;
-      case "rupeeToDollar":
-        inputField.placeholder = "Enter Rupees";
-        break;
-      default:
-        inputField.placeholder = "Enter a value";
+function updatePlaceholder() {
+    const select = document.getElementById('division');
+    const input = document.getElementById('val');
+    switch (select.value) {
+        case 'celsiusToFahrenheit':
+            input.placeholder = 'Enter Celsius';
+            break;
+        case 'fahrenheitToCelsius':
+            input.placeholder = 'Enter Fahrenheit';
+            break;
+        case 'dollarToRupee':
+            input.placeholder = 'Enter Dollars';
+            break;
+        case 'rupeeToDollar':
+            input.placeholder = 'Enter Rupees';
+            break;
+        default:
+            input.placeholder = 'Enter value';
     }
-  }
-  
-  function convert() {
-    const converterType = document.getElementById("converterType").value;
-    const inputValue = parseFloat(document.getElementById("inputValue").value);
+}
+
+function converter() {
+    const inputValue = parseFloat(document.getElementById('val').value);
+    const converterType = document.getElementById('division').value;
     let result;
-  
-    switch (converterType) {
-      case "celsiusToFahrenheit":
-        result = (inputValue * 9/5) + 32;
-        break;
-      case "fahrenheitToCelsius":
-        result = (inputValue - 32) * 5/9;
-        break;
-      case "dollarToRupee":
-        // Replace 82 with the current exchange rate
-        result = inputValue * 82;
-        break;
-      case "rupeeToDollar":
-        // Replace 0.0122 with the current exchange rate
-        result = inputValue * 0.0122;
-        break;
-      default:
-        result = "Invalid conversion type";
+
+    if (isNaN(inputValue)) {
+        document.getElementById('Result').innerText = "Please enter a valid number";
+        return;
     }
-  
-    document.getElementById("result").textContent = `Result: ${result}`;
-  }
-  
-  // Initial call to set the default placeholder
-  updateInputPlaceholder();
+
+    switch (converterType) {
+        case "celsiusToFahrenheit":
+            result = (inputValue * 9 / 5) + 32;
+            document.getElementById('Result').innerText = `${result.toFixed(2)} °F`;
+            break;
+        case "fahrenheitToCelsius":
+            result = (inputValue - 32) * 5 / 9;
+            document.getElementById('Result').innerText = `${result.toFixed(2)} °C`;
+            break;
+        case "dollarToRupee":
+            result = inputValue * 82;
+            document.getElementById('Result').innerText = `₹${result.toFixed(2)}`;
+            break;
+        case "rupeeToDollar":
+            result = inputValue * 0.0122;
+            document.getElementById('Result').innerText = `$${result.toFixed(2)}`;
+            break;
+        default:
+            document.getElementById('Result').innerText = "Invalid conversion type";
+    }
+}
