@@ -1,21 +1,20 @@
-function converter() {
-  const num = document.getElementById('val').value;
-  const selected = document.getElementById('division').value
-
-
-  if (selected == 'cel') {
-      
-      document.getElementById('Result').innerText =` F:${(num * (9/5) + 32).toFixed(2)}`;
-      
-  }
-  else if(selected =='fah'){
-      document.getElementById('Result').innerText = `C: ${( (num - 32) * 5/9).toFixed(2)}`;
-  }
-  else if(selected == 'rupee'){
-      document.getElementById('Result').innerText = `Rs. ${(num*84).toFixed(2)}`;
-  }
-  else if(selected == 'dollar'){
-      document.getElementById('Result').innerText =` $ ${(num/84).toFixed(2)}`;
-  }
- 
+function updatePlaceholder() {
+    const select = document.getElementById('division');
+    const input = document.getElementById('val');
+    switch (select.value) {
+        case 'cel':
+            input.placeholder = 'Enter Celsius';
+            break;
+        case 'fah':
+            input.placeholder = 'Enter Fahrenheit';
+            break;
+        case 'rupee':
+            input.placeholder = 'Enter Dollars';
+            break;
+        case 'dollar':
+            input.placeholder = 'Enter Rupees';
+            break;
+        default:
+            input.placeholder = 'Enter value';
+    }
 }

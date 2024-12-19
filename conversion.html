@@ -76,28 +76,26 @@ button:hover {
   margin-top: 10px;
 }
 
-    
     </style>
 </head>
 <body>
     <div class="convert">
         <h1 id="header">Converter</h1>
-        <label for="text">Enter:  
-      <input type="text" id="val" placeholder="Enter your value"></label>
-      <label for="division">Convert:
-      <select id="division">
+        <label for="text">Enter Value:  
+      <input type="text" id="val" placeholder="Enter value"></label>
+      <label for="division">Convert To:
+      <select id="division" onchange="updatePlaceholder()">
         <option value="">--Select Format--</option>
-        <option value="cel">celcius to fahranh</option>
-        <option value="fah">fahranh to celcius</option>
-        <option value="rupee">dollar to rupee</option>
-        <option value="dollar">rupee to dollar</option>
-        
+        <option value="cel">Celsius to Fahrenheit</option>
+        <option value="fah">Fahrenheit to Celsius</option>
+        <option value="rupee">Dollar to Rupee</option>
+        <option value="dollar">Rupee to Dollar</option>
       </select></label>
       <button class="btn" type="button" onclick="converter()">Convert</button>
-      <p>Result: <span class="result" id="Result"></span></p>
-   
-        
+      <p>Result: <span class="result" id="Result">-</span></p>
     </div>
-    <script src="conversion.js"></script>
+    <script src="conversion.js">
+       
+    </script>
 </body>
 </html>
