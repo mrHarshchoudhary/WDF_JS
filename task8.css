@@ -1,145 +1,133 @@
 * {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Updated gradient colors */
-}
-
-.convert {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 450px; /* Slightly narrower */
-  padding: 40px;
-  border-radius: 15px; /* More subtle rounding */
-  background: white;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  background: linear-gradient(45deg, #2193b0, #6dd5ed);
+  padding: 20px;
 }
 
-.header {
-  font-size: 2.5rem; /* Increased size for prominence */
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.details {
+.container {
   width: 100%;
+  max-width: 400px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #2193b0;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.options {
+  margin-bottom: 25px;
 }
 
 .checkbox-group {
   display: grid;
-  grid-template-columns: repeat(2, minmax(120px, auto));
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
+  margin-bottom: 20px;
 }
 
 .checkbox-group label {
   display: flex;
   align-items: center;
-  gap: 10px;
+  cursor: pointer;
 }
 
 .checkbox-group input[type="checkbox"] {
-  appearance: none; /* Remove default checkbox styling */
-  width: 24px; /* Custom width */
-  height: 24px; /* Custom height */
-  border-radius:4px; /* Rounded corners */
-   border:2px solid #2575fc; /* Border color */
-   cursor:pointer; /* Pointer cursor on hover */
-   outline:none; /* Remove outline */
-   transition:.3s; /* Smooth transition */
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  cursor: pointer;
 }
 
-.checkbox-group input[type="checkbox"]:checked {
-   background-color:#2575fc; /* Background color when checked */
-   border-color:#2575fc; /* Border color when checked */
+.length-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
 }
 
-.checkbox-group input[type="checkbox"]:checked::before {
-   content:'✔'; /* Checkmark symbol */
-   color:white; /* Checkmark color */
-   font-size:18px; /* Checkmark size */
-   position:absolute; 
-   left:-2px; 
-   top:-4px; 
-}
-
-.inputs {
-   margin-top:20px; 
-}
-
-.inputs label {
-   display:flex; 
-   justify-content:space-between; 
-   align-items:center; 
-}
-
-.inputs input[type="number"] {
-   width:auto; 
-   padding:.5rem; 
-   border-radius:.5rem; 
-   border:none; 
-   box-shadow:0 .5rem .5rem rgba(0,0,0,.1); 
-   transition:.3s ease-in-out; /* Smooth transition on focus */
-}
-
-.inputs input[type="number"]:focus {
-    outline:none; 
-    box-shadow:0 .5rem .5rem rgba(0,0,0,.2); /* Shadow on focus */
+.length-input input {
+  width: 70px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 .result {
-   background:#f9f9f9; 
-   padding:.75rem; 
-   border-radius:.75rem; 
-   width:100%; 
-   text-align:center; 
-   font-size:1.5rem; 
-   color:#333; 
-   margin-top:.75rem; 
-   border-left:4px solid #2575fc; /* Accent line on the left */
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  min-height: 50px;
+  word-break: break-all;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.btn {
-    padding:.75rem .5rem; 
-    border:none; 
-    border-radius:.75rem; 
-    background:#6a11cb; /* Solid background color for the button */
-    color:white; 
-    font-size:1.25rem; 
-    font-weight:bold; 
-    cursor:pointer; 
-    transition:.3s ease-in-out, transform .2s ease-in-out;
-    margin-top:.75rem;
+.generate-btn {
+  width: 100%;
+  padding: 15px;
+  background: #2193b0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.btn:hover {
-    transform:scale(1.05); /* Scale effect on hover */
-    background:#2575fc; /* Change background on hover */
+.generate-btn:hover {
+  background: #1a7a8c;
 }
 
 .copy-btn {
-    padding:.5rem .75rem; 
-    border:none; 
-    border-radius:.5rem; 
-    background:#6a11cb;
-    color:white; 
-    font-size:.9rem; 
-    font-weight:bold; 
-    cursor:pointer; 
-    transition:.3s ease-in-out, transform .2s ease-in-out;
-    margin-left:.5rem;
+  padding: 8px 15px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
 }
 
 .copy-btn:hover {
-    transform:scale(1.05); /* Scale effect on hover */
-    background:#2575fc; /* Change background on hover */
+  background: #45a049;
+}
+
+@media (max-width: 480px) {
+  .card {
+      padding: 20px;
+  }
+
+  .checkbox-group {
+      grid-template-columns: 1fr;
+  }
+
+  h1 {
+      font-size: 20px;
+  }
 }

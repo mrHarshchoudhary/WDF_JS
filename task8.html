@@ -3,35 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 8</title>
+    <title>Password Generator</title>
     <link rel="stylesheet" href="task8.css">
 </head>
 <body>
-    <div class="convert">
+    <div class="container">
         <div class="card">
-            <h1 class="header">Password Generator</h1>
-            <div class="details">
-                <div class="checkbox">
-                    <label for="low">
-                        <input type="checkbox" id="low" value="low">Lowercase</label>
-                    <label for="up"> 
-                        <input type="checkbox" id="up" value="up">Uppercase</label>
-                    <label for="spe"> 
-                        <input type="checkbox" id="spe" value="spe">Special Character</label>
-                    <label for="num"> 
-                        <input type="checkbox" id="num" value="num">Numeric</label>
+            <h1>Password Generator</h1>
+            
+            <div class="options">
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="low">
+                        <span>Lowercase</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="up">
+                        <span>Uppercase</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="spe">
+                        <span>Special Characters</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="num">
+                        <span>Numbers</span>
+                    </label>
+                </div>
 
-                </div>
-                <div class="inputs">
-                    <label for="limit">Enter Limit: <input type="number" id="limit"></label>
+                <div class="length-input">
+                    <label for="limit">Password Length:</label>
+                    <input type="number" id="limit" min="4" max="32" value="12">
                 </div>
             </div>
-            <div class="result">
-                <span id="result"></span>
-                
-          
-            </div>
-            <button class="btn" id="submit" onclick="genPass()">Generate</button>
+
+            <div class="result" id="result">Your password will appear here</div>
+
+            <button onclick="genPass()" class="generate-btn">Generate Password</button>
         </div>
     </div>
     <script src="task.js"></script>
