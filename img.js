@@ -1,6 +1,6 @@
 let classifier;
 let isModelLoaded = false;
-
+const url="https://teachablemachine.withgoogle.com/models/viGBopPnd/"
 // DOM Elements
 const modelStatus = document.getElementById("model-status");
 const imageInput = document.getElementById("image-input");
@@ -13,7 +13,7 @@ const resetButton = document.getElementById("reset-button");
 // Initialize MobileNet classifier
 async function initializeModel() {
   try {
-    classifier = await ml5.imageClassifier("MobileNet", () => {
+    classifier = await ml5.imageClassifier(url, () => {
       isModelLoaded = true;
       modelStatus.textContent = "MobileNet model loaded successfully!";
       modelStatus.style.backgroundColor = "#d4edda";
